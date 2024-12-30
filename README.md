@@ -17,13 +17,5 @@ These commands will install [LiveKit server](https://github.com/livekit/livekit)
 4. `pip install -r requirements.txt`
 5. `cp .env.example .env`
 6. add values for keys in `.env`
-7. `python main.py connect --room <room-name>`
-
-## Run second agent
-1. `cd agent-2`
-2. `python -m venv .venv`
-3. `source .venv/bin/activate`
-4. `pip install -r requirements.txt`
-5. `cp ../agent-1/.env .`
-7. `python main.py connect --room <room-name>`
+7. `python main.py dev` | `python main.py start`
 
