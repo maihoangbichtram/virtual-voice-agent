@@ -4,3 +4,8 @@ livekit-plugins-deepgram
 livekit-plugins-silero
 livekit-plugins-cartesia
 python-dotenv
+google
+google.auth
+google_auth_oauthlib
+google_api_python_client
+requests

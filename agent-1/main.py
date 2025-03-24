@@ -34,11 +34,11 @@ SCOPES = ["https://www.googleapis.com/auth/calendar"]
 
 from livekit import api
 import logging
-import numpy as np
-import cv2
+#import numpy as np
+#import cv2
 from livekit.agents.utils.images.image import encode, EncodeOptions
-from PIL import Image
-from ultralytics import YOLO
+#from PIL import Image
+#from ultralytics import YOLO
 import time
 
 room_name = "medibot"

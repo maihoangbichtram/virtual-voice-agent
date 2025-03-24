@@ -1,0 +1,51 @@
+[
+    {
+        "essential": true,
+        "image": "${repository_url}:latest",
+        "name": "${name}",
+        "memory": 1026,
+        "cpu": 1026,
+        "networkMode": "host",
+        "portMappings": [
+            {
+                "containerPort": 8000,
+                "hostPort": 8000,
+                "protocol": "tcp"
+            }
+        ],
+        "environment": [
+            {
+                "name": "OPENAI_API_KEY",
+                "value": "${open_ai_key}"
+            },
+            {
+                "name": "LIVEKIT_URL",
+                "value": "${livekit_url}"
+            },
+            {
+                "name": "LIVEKIT_API_KEY",
+                "value": "${livekit_api_key}"
+            },
+            {
+                "name": "LIVEKIT_API_SECRET",
+                "value": "${livekit_api_secret}"
+            },
+            {
+                "name": "DEEPGRAM_API_KEY",
+                "value": "${deepgram_api_key}"
+            },
+            {
+                "name": "CARTESIA_API_KEY",
+                "value": "${cartesia_api_key}"
+            }
+        ],
+        "logConfiguration": {
+            "logDriver": "awslogs",
+            "options": {
+                "awslogs-group": "${log_name}",
+                "awslogs-region": "${region}",
+                "awslogs-stream-prefix": "worker"
+            }
+        }
+    }
+]

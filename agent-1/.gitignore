@@ -156,6 +156,14 @@ cython_debug/
 
 # Environments
 token.json
+
+# Terrafrom
+terraform/terraform.tfvars
+terraform/terraform.tfstate*
+terraform/agent1-keypair.pem
+terraform/AWSCLIV2.pkg
+terraform/.terraform*
+
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
