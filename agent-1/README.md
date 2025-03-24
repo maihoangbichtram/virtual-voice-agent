@@ -10,6 +10,7 @@ It uses:
 
 ## Demo
 [![Website](https://img.shields.io/badge/Demo%20Website-AWS-teal?style=for-the-badge&logo=world&logoColor=white&color=0891b2)](https://intelligent-interface-2634xn.sandbox.livekit.io/)
+[![Website](https://img.shields.io/badge/Demo%20Website-AWS-teal?style=for-the-badge&logo=world&logoColor=white&color=0891b2)](https://intelligent-pipeline-1eqc65.sandbox.livekit.io/)
 - After 'Start Meeting', it takes a moment to show up in the room 
 - Due to limitation of APIs I used, the agent may not talk when showing up
 - The agent showing up indicates that the application is deployed and runs successfully :)
@@ -21,11 +22,12 @@ It uses:
 3. `pip install -r requirements.txt`
 4. `cp .env.example .env`
 5. add values for keys in `.env`
-6. `python main.py dev`
+6. `python main.py dev` | `python main.py start`
+
 
 ## Run a client
 
-1. Go to the [playground](https://agents-playground.livekit.io/#cam=0&mic=1&video=0&audio=1&chat=0&theme_color=amber) (code [here](https://github.com/livekit/agents-playground))
+1. Go to the [playground](https://agents-playground.livekit.io/#cam=0&mic=1&video=0&audio=1&chat=0&theme_color=amber)
 2. Choose the same LiveKit Cloud project you used in the agent's `.env` and click `Connect`
 
 ## Deployment
@@ -57,8 +59,9 @@ terraform apply
 - `EC2 instance_type` must have the architecture matched the platform of `aws_ecs_task_definition runtime_platform` (check from EC2 console > Instance types)
 - `ami` should be ECS-optimized Linux AMI
     ```bash
-    https://docs.aws.amazon.com/AmazonECS/latest/developerguide/retrieve-ecs-optimized_AMI.html
-    E.g (ami `amazon-linux-2023`,  region `eu-north-1`, cpu `arm64`): aws ssm get-parameters --names /aws/service/ecs/optimized-ami/amazon-linux-2023/arm64/recommended --region eu-north-1
+    // https://docs.aws.amazon.com/AmazonECS/latest/developerguide/retrieve-ecs-optimized_AMI.html
+    E.g (ami `amazon-linux-2023`,  region `eu-north-1`, cpu `arm64`): 
+      aws ssm get-parameters --names /aws/service/ecs/optimized-ami/amazon-linux-2023/arm64/recommended --region eu-north-1
     ```
 - Set all necessary `aws_ssm_parameter` in `./terraform/env.tf`
     ```bash
@@ -83,6 +86,8 @@ make ecr-push
 - Application load balancer (ALB) created with appropriate VPC and subnet association
 - ECS cluster created
   - associated with the created EC2 instance under `Infrastructure/Container instances`
-  - Under the “Services” tab, a service created
-  - the Service should trigger defined task under `Tasks`
+  - Under the `Services` tab, a service created
+  - the `Service` should trigger defined task under `Tasks`
+#### Logging
+- ECS cluster > Task > Logs
 
