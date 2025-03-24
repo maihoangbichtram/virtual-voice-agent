@@ -90,4 +90,7 @@ make ecr-push
   - the `Service` should trigger defined task under `Tasks`
 #### Logging
 - ECS cluster > Task > Logs
+#### Extra
+##### Auto-scaling group
+Refer to [Guide](https://spacelift.io/blog/terraform-ecs#1-setting-up-the-vpc)
 
